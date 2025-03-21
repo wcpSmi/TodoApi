@@ -1,0 +1,9 @@
+﻿Hozzuk létre az adatbázis sémáját, ehhez migrációt kell futtatnunk.
+	Nyiss egy terminált, és írd be:
+
+		dotnet ef migrations add InitialCreate
+		dotnet ef database update
+
+migrations add InitialCreate → Létrehoz egy migrációt (InitialCreate néven), amely tartalmazza az adatbázis szerkezetét.
+database update → Lefuttatja a migrációt, és létrehozza a tényleges adatbázist (todo.db).
+
