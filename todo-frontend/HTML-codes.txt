@@ -1,0 +1,7 @@
+Tag	Leírás
+<div>	Tartalom konténer, blokk-szintű
+<h2>	Címsor 2. szint (nagyobb, mint egy sima szöveg)
+<p>	Bekezdés, sima szöveg
+<ul>	Unordered list (felsorolás, pontokkal)
+<li>	Listaelem (a ul vagy ol gyermekeleme)
+<span>	Inline szöveg – kód, stílus, részlet kiemelésére

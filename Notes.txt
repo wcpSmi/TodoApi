@@ -7,3 +7,20 @@
 migrations add InitialCreate → Létrehoz egy migrációt (InitialCreate néven), amely tartalmazza az adatbázis szerkezetét.
 database update → Lefuttatja a migrációt, és létrehozza a tényleges adatbázist (todo.db).
 
+
+A frontendet (todo-frontend) futtatod külön terminálból:
+
+cd C:\Data\Programing\Development\TodoApi\todo-frontend
+npm start
+Más eszözről is elérhtővé tesszük így:
+powerShell:
+$env:HOST="192.168.1.8"
+npm start
+
+Tailwind CSS hozzáadása a React projekthez:
+A projekted mappájában (todo-frontend) futtasd ezt a 3 parancsot terminálban (VS Code vagy PowerShell):
+
+1. Telepítés:
+	npm install -D tailwindcss postcss autoprefixer
+2. Inicializálás:
+	npx tailwindcss init -p

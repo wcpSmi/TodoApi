@@ -32,6 +32,24 @@ namespace TodoApi
 			builder.Services.AddScoped<UserRepository>();
 			builder.Services.AddScoped<TodoRepository>();
 
+			//Ez biztosítja, hogy a React frontend (ami pl. http://localhost:3000-ról fut) tudjon kapcsolódni a https://localhost:7027 ASP.NET API-hoz.
+			//Hozzunk létre egy AllowAll nevû CORS szabályt:
+			builder.Services.AddCors(options =>
+			{
+				options.AddPolicy("AllowAll", policy =>
+				{
+					policy.WithOrigins(//Csak innen vár kérést				   
+						"http://192.168.1.8:3000",
+								"http://localhost:3000",
+								"http://192.168.1.8:3001",
+								"http://localhost:3001"
+								)
+					//.AllowAnyOrigin()// Bármilyen weboldalról engedünk kérést (pl. localhost:3000)
+						  .AllowAnyMethod()//GET, POST, PUT, DELETE stb. is mehet
+						  .AllowAnyHeader();//Tetszõleges HTTP fejléceket elfogadunk
+				});
+			});
+
 			// Itt történik meg az alkalmazás tényleges összeállítása és inicializálása.
 			var app = builder.Build();
 
@@ -41,8 +59,12 @@ namespace TodoApi
 				app.UseSwaggerUI();
 			}
 
+			//Aktiváljuk a CORS engedélyezést
+			app.UseCors("AllowAll");
+
 			//Biztonsági okokból minden kérést titkosított kapcsolat(HTTPS) alá helyez, ha lehet.
-			app.UseHttpsRedirection();
+			//Tanulási célból most kikapcsolom
+			//app.UseHttpsRedirection();
 			//Engedélyezi a felhasználói hitelesítést és jogosultságkezelést.
 			app.UseAuthorization();
 			//Ez biztosítja, hogy az [Route] attribútummal megjelölt végpontok elérhetõk legyenek.

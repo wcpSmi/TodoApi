@@ -1,0 +1,12 @@
+bg-white	fehér háttér
+rounded-2xl	extra lekerekített sarkok
+shadow-md	közepes dobozárnyék
+p-4	padding (belső térköz) 1 rem
+text-xl	extra nagy betűméret
+font-semibold	félkövér betű
+text-indigo-600	indigókék szövegszín
+text-sm	kis betűméret
+text-gray-400	világosszürke szín
+italic	dőlt betű
+list-disc	pontozott felsorolás
+list-inside	a lista pontja a szöveg belső szélén van, nem kívül
