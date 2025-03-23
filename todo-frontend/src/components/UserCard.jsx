@@ -1,9 +1,12 @@
 // React importálása, hogy JSX-t (HTML-szerű szintaxist) használhassunk
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // UserCard komponens definíciója
 // A `user` nevű objektumot props-ként (bemeneti adatként) kapja meg
 function UserCard({ user }) {
+  const navigate = useNavigate();
+
   return (
     // A teljes kártya konténer eleme
     // Tailwind osztályok: fehér háttér, lekerekített sarkok, árnyék, padding
@@ -44,7 +47,7 @@ function UserCard({ user }) {
       {/* ➕ Gomb hozzáadása */}
       <div className="mt-4 text-right">
         <button
-          onClick={() => console.log(`Szerkesztés ID: ${user.id}`)}
+          onClick={() => navigate(`/edit-user/${user.id}`)}
           className="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-1 px-3 rounded-lg text-sm"
         >
           ✏️ Szerkesztés

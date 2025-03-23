@@ -22,7 +22,23 @@ namespace TodoApi.Repositories
 		public void Add(User user)
 		{
 			this.context.Users.Add(user);
-			this.context.SaveChanges(); // 👈 Módosítások mentése az adatbázisba
+			this.context.SaveChanges(); 
+		}
+
+		public bool Update(int id,User user)
+		{
+			var existingUser = this.context.Users.Find(id);
+			if (existingUser == null)
+			{
+				return false;
+			}
+
+			existingUser.Name = user.Name;
+			existingUser.Email = user.Email;
+
+			this.context.SaveChanges();
+
+			return true;
 		}
 	}
 }

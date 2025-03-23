@@ -38,6 +38,8 @@ namespace TodoApi.Respositories
 			existingTodo.IsCompeted = updateItem.IsCompeted;
 			existingTodo.UserId = updateItem.UserId;
 
+			this.context.SaveChanges();
+
 			return true;
 		}
 

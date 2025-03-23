@@ -35,5 +35,11 @@ namespace TodoApi.Controllers
 			this.repository.Add(user);
 			return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
 		}
+
+		[HttpPut("{id}")]
+		public IActionResult UpdateUser(int id, [FromBody] User user)
+		{
+			return repository.Update(id, user) ? NoContent() : NotFound();
+		}
 	}
 }
